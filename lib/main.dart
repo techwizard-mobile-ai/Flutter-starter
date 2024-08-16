@@ -14,7 +14,6 @@ class MyAppBar extends StatelessWidget{
         children: [
           const IconButton(onPressed: null, icon: Icon(Icons.menu),tooltip: "Navication Menu",),
           Expanded(child: title),
-          Expanded(child: title),
           const IconButton(onPressed: null, icon: Icon(Icons.search), tooltip: "Search",)
         ],
       ),
