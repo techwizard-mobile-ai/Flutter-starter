@@ -1,56 +1,35 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
-class MyAppBar extends StatelessWidget{
-  const MyAppBar({required this.title, super.key});
 
-  final Widget title;
-
-  @override
-  Widget build(BuildContext context){
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8),
-      decoration: BoxDecoration(color: Colors.blue[500]),
-      child: Row(
-        children: [
-          const IconButton(onPressed: null, icon: Icon(Icons.menu),tooltip: "Navication Menu",),
-          Expanded(child: title),
-          const IconButton(onPressed: null, icon: Icon(Icons.search), tooltip: "Search",)
-        ],
-      ),
-    );
-  }
+void main()
+{
+  runApp(
+    const MaterialApp(
+      title: "Flutter Tutorial",
+      home: TutorialHome(),
+      debugShowCheckedModeBanner: false,
+    )
+  );
 }
 
-class MyScaforld extends StatelessWidget{
-  const MyScaforld({super.key});
+class TutorialHome extends StatelessWidget{
+  const TutorialHome({super.key});
 
   @override
   Widget build(BuildContext context)
   {
-    return Material(
-      child: Column(
-        children: [
-          MyAppBar(title: Text(
-            "Example Text",
-            textDirection: TextDirection.ltr,
-            style: Theme.of(context).primaryTextTheme.titleLarge,
-          )),
-          const Expanded(child: Center(
-            child: Text(
-                "Hello World"
-            ),
-          ))
+    return Scaffold(
+      appBar: AppBar(
+        leading: const IconButton(onPressed: null, icon: Icon(Icons.menu), tooltip: "Menu Icon",),
+        title: const Text("Example Title"),
+        actions: const [
+          IconButton(onPressed: null, icon: Icon(Icons.search), tooltip: "search",)
         ],
       ),
+      body: const Center(
+        child: Text("Hello, world!"),
+      ),
+      floatingActionButton: const FloatingActionButton(onPressed: null, tooltip: "ADD", child: Icon(Icons.plus_one),),
     );
   }
-}
-
-void main()
-{
-  runApp(const MaterialApp(
-    title:"My app",
-    home: SafeArea(child: MyScaforld()),
-    debugShowCheckedModeBanner: false,
-  ));
 }
